@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "wolfaddon:smelt_turmalina_rubelita"
+    },
+    "tags": [
+      "furnace",
+      "blast_furnace"
+    ],
+    "input": "wolfaddon:turmalina_rubelita_bruta",
+    "output": "wolfaddon:turmalina_rubelita"
+  },
+  "unlock": {
+    "context": "AlwaysUnlocked"
+  }
+}

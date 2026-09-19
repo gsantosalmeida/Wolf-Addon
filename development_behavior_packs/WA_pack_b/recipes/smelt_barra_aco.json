@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "wolfaddon:smelt_barra_aco"
+    },
+    "tags": [
+      "furnace",
+      "blast_furnace"
+    ],
+    "input": "wolfaddon:barra_ferro_carvao",
+    "output": "wolfaddon:barra_aco"
+  },
+  "unlock": {
+    "context": "AlwaysUnlocked"
+  }
+}

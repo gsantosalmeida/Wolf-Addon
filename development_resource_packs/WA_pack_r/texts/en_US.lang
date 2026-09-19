@@ -1,0 +1,14 @@
+pack.name=Wolf Addon [B]
+pack.description=A Test Addon made by Wolf ADDON
+item.wolfaddon:turmalina_paraiba=Paraiba Tourmaline
+item.wolfaddon:turmalina_schorl=Schorl Tourmaline
+item.wolfaddon:turmalina_rubelita=Rubellite Tourmaline
+item.wolfaddon:turmalina_indicolita=Indicolite Tourmaline
+item.wolfaddon:turmalina_paraiba_bruta=Raw Paraiba Tourmaline
+item.wolfaddon:turmalina_schorl_bruta=Raw Schorl Tourmaline
+item.wolfaddon:turmalina_rubelita_bruta=Raw Rubellite Tourmaline
+item.wolfaddon:turmalina_indicolita_bruta=Raw Indicolite Tourmaline
+tile.wolfaddon:bloco_turmalina_paraiba.name=Paraiba Tourmaline Block
+tile.wolfaddon:bloco_turmalina_schorl.name=Schorl Tourmaline Block
+tile.wolfaddon:bloco_turmalina_rubelita.name=Rubellite Tourmaline Block
+tile.wolfaddon:bloco_turmalina_indicolita.name=Indicolite Tourmaline Block

@@ -1,0 +1,38 @@
+{
+  "resource_pack_name": "wolfaddon",
+  "texture_data": {
+    "wolfaddon:turmalina_schorl": {
+      "textures": "textures/items/turmalina_schorl"
+    },
+    "wolfaddon:turmalina_indicolita": {
+      "textures": "textures/items/turmalina_indicolita"
+    },
+    "wolfaddon:turmalina_rubelita": {
+      "textures": "textures/items/turmalina_rubelita"
+    },
+    "wolfaddon:turmalina_paraiba": {
+      "textures": "textures/items/turmalina_paraiba"
+    },
+    "wolfaddon:turmalina_schorl_bruta": {
+      "textures": "textures/items/turmalina_schorl_bruta"
+    },
+    "wolfaddon:turmalina_indicolita_bruta": {
+      "textures": "textures/items/turmalina_indicolita_bruta"
+    },
+    "wolfaddon:turmalina_rubelita_bruta": {
+      "textures": "textures/items/turmalina_rubelita_bruta"
+    },
+    "wolfaddon:metade_carvao": {
+      "textures": "textures/items/metade_carvao"
+    },
+    "wolfaddon:barra_ferro_carvao": {
+      "textures": "textures/items/barra_ferro_carvao"
+    },
+    "wolfaddon:barra_aco": {
+      "textures": "textures/items/barra_aco"
+    },
+    "wolfaddon:turmalina_paraiba_bruta": {
+      "textures": "textures/items/turmalina_paraiba_bruta"
+    }
+  }
+}

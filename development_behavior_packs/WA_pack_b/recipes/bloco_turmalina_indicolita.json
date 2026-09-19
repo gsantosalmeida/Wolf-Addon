@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "wolfaddon:bloco_turmalina_indicolita"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "TTT",
+      "TTT",
+      "TTT"
+    ],
+    "key": {
+      "T": {
+        "item": "wolfaddon:turmalina_indicolita"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "wolfaddon:bloco_turmalina_indicolita",
+      "count": 1
+    }
+  }
+}

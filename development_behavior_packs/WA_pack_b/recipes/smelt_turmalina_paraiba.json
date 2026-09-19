@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "wolfaddon:smelt_turmalina_paraiba"
+    },
+    "tags": [
+      "furnace",
+      "blast_furnace"
+    ],
+    "input": "wolfaddon:turmalina_paraiba_bruta",
+    "output": "wolfaddon:turmalina_paraiba"
+  },
+  "unlock": {
+    "context": "AlwaysUnlocked"
+  }
+}

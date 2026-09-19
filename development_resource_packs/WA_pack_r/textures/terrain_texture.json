@@ -1,0 +1,17 @@
+{
+  "resource_pack_name": "wolfaddon",
+  "texture_data": {
+    "wolfaddon:bloco_turmalina_schorl": {
+      "textures": "textures/blocks/bloco_turmalina_schorl"
+    },
+    "wolfaddon:bloco_turmalina_indicolita": {
+      "textures": "textures/blocks/bloco_turmalina_indicolita"
+    },
+    "wolfaddon:bloco_turmalina_rubelita": {
+      "textures": "textures/blocks/bloco_turmalina_rubelita"
+    },
+    "wolfaddon:bloco_turmalina_paraiba": {
+      "textures": "textures/blocks/bloco_turmalina_paraiba"
+    }
+  }
+}

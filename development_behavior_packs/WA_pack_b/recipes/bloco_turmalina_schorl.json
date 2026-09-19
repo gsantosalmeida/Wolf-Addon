@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "wolfaddon:bloco_turmalina_schorl"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "TTT",
+      "TTT",
+      "TTT"
+    ],
+    "key": {
+      "T": {
+        "item": "wolfaddon:turmalina_schorl"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "wolfaddon:bloco_turmalina_schorl",
+      "count": 1
+    }
+  }
+}
