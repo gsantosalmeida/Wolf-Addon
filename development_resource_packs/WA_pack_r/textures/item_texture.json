@@ -31,6 +31,9 @@
     "wolfaddon:barra_aco": {
       "textures": "textures/items/barra_aco"
     },
+    "wolfaddon:chisel": {
+      "textures": "textures/items/chisel"
+    },
     "wolfaddon:turmalina_paraiba_bruta": {
       "textures": "textures/items/turmalina_paraiba_bruta"
     }
