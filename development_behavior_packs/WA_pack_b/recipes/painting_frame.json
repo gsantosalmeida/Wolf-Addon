@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "wolfaddon:painting_frame"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "LLL",
+      "CAC",
+      "LLL"
+    ],
+    "key": {
+      "L": {
+        "item": "minecraft:stick"
+      },
+      "C": {
+        "item": "minecraft:coal"
+      },
+      "A": {
+        "item": "minecraft:lapis_lazuli"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "wolfaddon:painting_frame_spawn_egg",
+      "count": 1
+    }
+  }
+}

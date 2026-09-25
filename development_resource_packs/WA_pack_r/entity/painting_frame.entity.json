@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wolfaddon:painting_frame",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "painting_0": "textures/painting/painting_0",
+        "painting_1": "textures/painting/painting_1",
+        "painting_2": "textures/painting/painting_2",
+        "painting_3": "textures/painting/painting_3",
+        "painting_4": "textures/painting/painting_4",
+        "painting_5": "textures/painting/painting_5",
+        "painting_6": "textures/painting/painting_6",
+        "painting_7": "textures/painting/painting_7"
+      },
+      "geometry": {
+        "default": "geometry.wolfaddon.painting_frame"
+      },
+      "render_controllers": [
+        "controller.render.wolfaddon.painting_frame"
+      ],
+      "spawn_egg": {
+        "texture": "wolfaddon:quadro_magico"
+      }
+    }
+  }
+}

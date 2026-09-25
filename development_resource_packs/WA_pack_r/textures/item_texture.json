@@ -36,6 +36,9 @@
     },
     "wolfaddon:turmalina_paraiba_bruta": {
       "textures": "textures/items/turmalina_paraiba_bruta"
+    },
+    "wolfaddon:quadro_magico": {
+      "textures": "textures/items/quadro_magico"
     }
   }
 }
