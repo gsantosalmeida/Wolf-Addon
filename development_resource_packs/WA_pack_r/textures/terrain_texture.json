@@ -12,6 +12,36 @@
     },
     "wolfaddon:bloco_turmalina_paraiba": {
       "textures": "textures/blocks/bloco_turmalina_paraiba"
+    },
+    "painting_0": {
+      "textures": "textures/painting/painting_0"
+    },
+    "painting_1": {
+      "textures": "textures/painting/painting_1"
+    },
+    "painting_2": {
+      "textures": "textures/painting/painting_2"
+    },
+    "painting_3": {
+      "textures": "textures/painting/painting_3"
+    },
+    "painting_4": {
+      "textures": "textures/painting/painting_4"
+    },
+    "painting_5": {
+      "textures": "textures/painting/painting_5"
+    },
+    "painting_6": {
+      "textures": "textures/painting/painting_6"
+    },
+    "painting_7": {
+      "textures": "textures/painting/painting_7"
+    },
+    "painting_gif": {
+      "textures": "textures/painting/painting_gif"
+    },
+    "higuruma_gif": {
+      "textures": "textures/painting/higuruma_gif"
     }
   }
 }

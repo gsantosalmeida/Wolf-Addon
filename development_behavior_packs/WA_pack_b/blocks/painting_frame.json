@@ -1,0 +1,163 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "wolfaddon:painting_frame",
+      "menu_category": {
+        "category": "items"
+      },
+      "states": {
+        "wolfaddon:painting_id": {
+          "values": { "min": 0, "max": 15 }
+        }
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"],
+          "y_rotation_offset": 180
+        }
+      }
+    },
+    "components": {
+      "minecraft:geometry": "geometry.wolfaddon.painting_frame",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "painting_0",
+          "render_method": "alpha_test",
+          "face_dimming": false,
+          "ambient_occlusion": false
+        }
+      },
+      "minecraft:collision_box": {
+        "origin": [-8, 0, 7.7],
+        "size": [16, 16, 0.3]
+      },
+      "minecraft:selection_box": {
+        "origin": [-8, 0, 7.7],
+        "size": [16, 16, 0.3]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.3
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 1
+      },
+      "minecraft:light_dampening": 0,
+      "minecraft:light_emission": 0
+    },
+    "permutations": [
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('wolfaddon:painting_id') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "*": { "texture": "painting_0", "render_method": "alpha_test", "face_dimming": false, "ambient_occlusion": false }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('wolfaddon:painting_id') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": { "texture": "painting_1", "render_method": "alpha_test", "face_dimming": false, "ambient_occlusion": false }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('wolfaddon:painting_id') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": { "texture": "painting_2", "render_method": "alpha_test", "face_dimming": false, "ambient_occlusion": false }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('wolfaddon:painting_id') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": { "texture": "painting_3", "render_method": "alpha_test", "face_dimming": false, "ambient_occlusion": false }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('wolfaddon:painting_id') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": { "texture": "painting_4", "render_method": "alpha_test", "face_dimming": false, "ambient_occlusion": false }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('wolfaddon:painting_id') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": { "texture": "painting_5", "render_method": "alpha_test", "face_dimming": false, "ambient_occlusion": false }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('wolfaddon:painting_id') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": { "texture": "painting_6", "render_method": "alpha_test", "face_dimming": false, "ambient_occlusion": false }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('wolfaddon:painting_id') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "*": { "texture": "painting_7", "render_method": "alpha_test", "face_dimming": false, "ambient_occlusion": false }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('wolfaddon:painting_id') == 8",
+        "components": {
+          "minecraft:material_instances": {
+            "*": { "texture": "painting_gif", "render_method": "alpha_test", "face_dimming": false, "ambient_occlusion": false }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('wolfaddon:painting_id') == 9",
+        "components": {
+          "minecraft:material_instances": {
+            "*": { "texture": "higuruma_gif", "render_method": "alpha_test", "face_dimming": false, "ambient_occlusion": false }
+          }
+        }
+      }
+    ]
+  }
+}

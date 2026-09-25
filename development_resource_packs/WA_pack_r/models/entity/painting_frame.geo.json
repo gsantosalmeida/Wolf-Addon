@@ -1,5 +1,5 @@
 {
-  "format_version": "1.16.0",
+  "format_version": "1.21.0",
   "minecraft:geometry": [
     {
       "description": {
@@ -13,11 +13,11 @@
       "bones": [
         {
           "name": "root",
-          "pivot": [0, 0, 0],
+          "pivot": [0, 8, 0],
           "cubes": [
             {
-              "origin": [-8, 0, -0.5],
-              "size": [16, 16, 1],
+              "origin": [-8, 0, 7.75],
+              "size": [16, 16, 0.5],
               "uv": {
                 "north": { "uv": [0, 0], "uv_size": [32, 32] },
                 "south": { "uv": [0, 0], "uv_size": [32, 32] },

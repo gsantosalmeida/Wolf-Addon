@@ -12,7 +12,7 @@
     ],
     "key": {
       "L": {
-        "item": "minecraft:stick"
+        "item": "wolfaddon:cabo_aco"
       },
       "C": {
         "item": "minecraft:coal"
@@ -25,7 +25,7 @@
       "context": "AlwaysUnlocked"
     },
     "result": {
-      "item": "wolfaddon:painting_frame_spawn_egg",
+      "item": "wolfaddon:painting_frame",
       "count": 1
     }
   }

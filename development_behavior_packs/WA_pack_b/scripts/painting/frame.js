@@ -1,60 +1,63 @@
-import { world, system } from "@minecraft/server";
+import { world, system, BlockPermutation } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 
 const PAINTINGS = [
-    { id: 0, name: "§1Smurf Azul", animated: false },
-    { id: 1, name: "§1Pintinho", animated: false },
-    { id: 2, name: "§1Pinguin", animated: false },
-    { id: 3, name: "§1Cachorrin romantico", animated: false },
-    { id: 4, name: "§1Gato mewing", animated: false },
-    { id: 5, name: "§1Gato sorriso", animated: false },
-    { id: 6, name: "§1Minion", animated: false },
-    { id: 7, name: "§1Gato", animated: false },
-    { id: 8, name: "§1Tenor GIF", animated: true },
-    { id: 9, name: "§1Higuruma GIF", animated: true }
+    { id: 0, name: "§1Smurf Azul" },
+    { id: 1, name: "§1Pintinho" },
+    { id: 2, name: "§1Pinguin" },
+    { id: 3, name: "§1Cachorrin romantico" },
+    { id: 4, name: "§1Gato mewing" },
+    { id: 5, name: "§1Gato sorriso" },
+    { id: 6, name: "§1Minion" },
+    { id: 7, name: "§1Gato" },
+    { id: 8, name: "§dTenor GIF" },
+    { id: 9, name: "§dHiguruma GIF" }
 ];
 
-
-function openPaintingUI(player, entity) {
+function openPaintingUI(player, block) {
     const form = new ActionFormData()
         .title("§0Quadro de Pintura")
-        .body("§8Escolha a pintura que deseja colocar no quadro:");
+        .body("§8Escolha a pintura:");
 
     for (const p of PAINTINGS) {
         form.button(p.name);
     }
 
     form.show(player).then((response) => {
-        if (response.canceled || response.selection === undefined) {
-            return;
-        }
+        if (response.canceled || response.selection === undefined) return;
 
         const selected = PAINTINGS[response.selection];
         if (!selected) return;
 
-        try {
-            entity.setProperty("wolfaddon:painting_id", selected.id);
-            entity.setProperty("wolfaddon:is_animated", selected.animated === true);
-            player.playSound("random.orb");
-        } catch (e) {
-            console.warn("Erro ao setar painting_id:", e);
-            player.sendMessage("§cErro ao aplicar a pintura.");
-        }
-    }).catch((err) => {
-        console.warn("Erro ao abrir UI:", err);
-        player.sendMessage("§cErro ao abrir a UI.");
+        system.run(() => {
+            try {
+                const perm = BlockPermutation.resolve("wolfaddon:painting_frame", {
+                    "wolfaddon:painting_id": selected.id,
+                    "minecraft:cardinal_direction": block.permutation.getState("minecraft:cardinal_direction")
+                });
+                block.setPermutation(perm);
+                player.playSound("random.orb");
+            } catch (e) {
+                console.warn("Erro ao trocar pintura:", e);
+                player.sendMessage("§cErro ao aplicar a pintura.");
+            }
+        });
     });
 }
 
-world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
-    const player = event.player;
-    const target = event.target;
+world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+    const { player, block, isFirstEvent } = event;
 
-    if (target.typeId !== "wolfaddon:painting_frame") return;
+    if (block.typeId !== "wolfaddon:painting_frame") return;
+    if (!isFirstEvent) return;
+
+    // Só abre UI se estiver de mãos vazias (opcional)
+    const item = player.getComponent("minecraft:equippable")?.getEquipment("Mainhand");
+    if (item) return;
 
     event.cancel = true;
 
     system.run(() => {
-        openPaintingUI(player, target);
+        openPaintingUI(player, block);
     });
 });

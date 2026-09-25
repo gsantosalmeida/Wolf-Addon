@@ -1,0 +1,14 @@
+[
+  {
+    "flipbook_texture": "textures/painting/painting_gif",
+    "atlas_tile": "painting_gif",
+    "ticks_per_frame": 5,
+    "replicate": 1
+  },
+  {
+    "flipbook_texture": "textures/painting/higuruma_gif",
+    "atlas_tile": "higuruma_gif",
+    "ticks_per_frame": 5,
+    "replicate": 1
+  }
+]
