@@ -10,7 +10,8 @@ const PAINTINGS = [
     { id: 5, name: "§1Gato sorriso", animated: false },
     { id: 6, name: "§1Minion", animated: false },
     { id: 7, name: "§1Gato", animated: false },
-    { id: 8, name: "§1Tenor GIF", animated: true }
+    { id: 8, name: "§1Tenor GIF", animated: true },
+    { id: 9, name: "§1Higuruma GIF", animated: true }
 ];
 
 

@@ -15,7 +15,8 @@
         "painting_5": "textures/painting/painting_5",
         "painting_6": "textures/painting/painting_6",
         "painting_7": "textures/painting/painting_7",
-        "painting_8": "textures/painting/painting_gif"
+        "painting_8": "textures/painting/painting_gif",
+        "painting_9": "textures/painting/higuruma_gif"
       },
       "geometry": {
         "default": "geometry.wolfaddon.painting_frame"
