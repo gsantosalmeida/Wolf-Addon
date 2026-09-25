@@ -1,0 +1,15 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "wolfaddon:cabo_aco",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:max_stack_size": 64,
+      "minecraft:icon": "wolfaddon:cabo_aco"
+    }
+  }
+}

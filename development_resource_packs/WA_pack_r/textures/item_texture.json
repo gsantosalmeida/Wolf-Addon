@@ -31,6 +31,9 @@
     "wolfaddon:barra_aco": {
       "textures": "textures/items/barra_aco"
     },
+    "wolfaddon:cabo_aco": {
+      "textures": "textures/items/cabo_aco"
+    },
     "wolfaddon:chisel": {
       "textures": "textures/items/chisel"
     },

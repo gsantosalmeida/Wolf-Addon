@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "wolfaddon:cabo_aco"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "A",
+      "A"
+    ],
+    "key": {
+      "A": {
+        "item": "wolfaddon:barra_aco"
+      }
+    },
+    "unlock": {
+      "context": "AlwaysUnlocked"
+    },
+    "result": {
+      "item": "wolfaddon:cabo_aco",
+      "count": 2
+    }
+  }
+}
