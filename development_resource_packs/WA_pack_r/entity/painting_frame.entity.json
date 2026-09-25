@@ -4,7 +4,7 @@
     "description": {
       "identifier": "wolfaddon:painting_frame",
       "materials": {
-        "default": "entity_alphatest"
+        "default": "wolfaddon_animated"
       },
       "textures": {
         "painting_0": "textures/painting/painting_0",
@@ -14,7 +14,8 @@
         "painting_4": "textures/painting/painting_4",
         "painting_5": "textures/painting/painting_5",
         "painting_6": "textures/painting/painting_6",
-        "painting_7": "textures/painting/painting_7"
+        "painting_7": "textures/painting/painting_7",
+        "painting_8": "textures/painting/painting_gif"
       },
       "geometry": {
         "default": "geometry.wolfaddon.painting_frame"

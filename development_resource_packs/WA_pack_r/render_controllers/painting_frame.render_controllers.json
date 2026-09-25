@@ -12,7 +12,8 @@
             "Texture.painting_4",
             "Texture.painting_5",
             "Texture.painting_6",
-            "Texture.painting_7"
+            "Texture.painting_7",
+            "Texture.painting_8"
           ]
         }
       },
@@ -22,7 +23,17 @@
       ],
       "textures": [
         "Array.paintings[q.property('wolfaddon:painting_id')]"
-      ]
+      ],
+      "uv_anim": {
+        "offset": [
+          0.0,
+          "q.property('wolfaddon:is_animated') ? math.mod(math.floor(q.life_time * 5), 4) / 4.0 : 0.0"
+        ],
+        "scale": [
+          1.0,
+          "q.property('wolfaddon:is_animated') ? 0.25 : 1.0"
+        ]
+      }
     }
   }
 }

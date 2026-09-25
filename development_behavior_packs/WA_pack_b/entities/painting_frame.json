@@ -10,14 +10,26 @@
         "wolfaddon:painting_id": {
           "type": "int",
           "default": 0,
-          "range": [0, 15],
+          "range": [
+            0,
+            15
+          ],
+          "client_sync": true
+        },
+        "wolfaddon:is_animated": {
+          "type": "bool",
+          "default": false,
           "client_sync": true
         }
       }
     },
     "components": {
       "minecraft:type_family": {
-        "family": ["painting_frame", "inanimate", "mob"]
+        "family": [
+          "painting_frame",
+          "inanimate",
+          "mob"
+        ]
       },
       "minecraft:collision_box": {
         "width": 1,
@@ -54,7 +66,7 @@
                 ]
               }
             },
-            "interact_text": "action.interact.painting"
+            "interact_text": "Pintar"
           }
         ]
       }

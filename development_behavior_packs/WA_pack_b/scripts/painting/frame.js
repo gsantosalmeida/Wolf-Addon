@@ -2,14 +2,15 @@ import { world, system } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 
 const PAINTINGS = [
-    { id: 0, name: "§1Smurf Azul" },
-    { id: 1, name: "§1Pintinho" },
-    { id: 2, name: "§1Pinguin" },
-    { id: 3, name: "§1Cachorrin romantico" },
-    { id: 4, name: "§1Gato mewing" },
-    { id: 5, name: "§1Gato sorriso" },
-    { id: 6, name: "§1Minion" },
-    { id: 7, name: "§1Gato" },
+    { id: 0, name: "§1Smurf Azul", animated: false },
+    { id: 1, name: "§1Pintinho", animated: false },
+    { id: 2, name: "§1Pinguin", animated: false },
+    { id: 3, name: "§1Cachorrin romantico", animated: false },
+    { id: 4, name: "§1Gato mewing", animated: false },
+    { id: 5, name: "§1Gato sorriso", animated: false },
+    { id: 6, name: "§1Minion", animated: false },
+    { id: 7, name: "§1Gato", animated: false },
+    { id: 8, name: "§1Tenor GIF", animated: true }
 ];
 
 
@@ -32,6 +33,7 @@ function openPaintingUI(player, entity) {
 
         try {
             entity.setProperty("wolfaddon:painting_id", selected.id);
+            entity.setProperty("wolfaddon:is_animated", selected.animated === true);
             player.playSound("random.orb");
         } catch (e) {
             console.warn("Erro ao setar painting_id:", e);
