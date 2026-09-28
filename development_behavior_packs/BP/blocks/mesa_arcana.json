@@ -1,0 +1,60 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "arcane:mesa_arcana",
+      "menu_category": {
+        "category": "construction",
+        "group": "itemGroup.name.craftingTable"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 2.5
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 3.0
+      },
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "up": {
+          "texture": "mesa_arcana_top",
+          "render_method": "opaque"
+        },
+        "down": {
+          "texture": "mesa_arcana_top",
+          "render_method": "opaque"
+        },
+        "north": {
+          "texture": "mesa_arcana_front",
+          "render_method": "opaque"
+        },
+        "south": {
+          "texture": "mesa_arcana_side",
+          "render_method": "opaque"
+        },
+        "east": {
+          "texture": "mesa_arcana_side",
+          "render_method": "opaque"
+        },
+        "west": {
+          "texture": "mesa_arcana_side",
+          "render_method": "opaque"
+        },
+        "*": {
+          "texture": "mesa_arcana_side",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:map_color": "#5C3A8A",
+      "minecraft:light_dampening": 0,
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+      "minecraft:display_name": "tile.arcane:mesa_arcana.name",
+      "minecraft:flammable": {
+        "catch_chance_modifier": 5,
+        "destroy_chance_modifier": 20
+      }
+    }
+  }
+}

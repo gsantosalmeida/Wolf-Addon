@@ -1,0 +1,9 @@
+{
+  "resource_pack_name": "mesa_arcana",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "mesa_arcana": {
+      "textures": "textures/blocks/mesa_arcana_front"
+    }
+  }
+}

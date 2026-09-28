@@ -13,6 +13,9 @@
     "wolfaddon:bloco_turmalina_paraiba": {
       "textures": "textures/blocks/bloco_turmalina_paraiba"
     },
+    "mesa_arcana": {
+      "textures": "textures/blocks/mesa_arcana"
+    },
     "painting_0": {
       "textures": "textures/painting/painting_0"
     },

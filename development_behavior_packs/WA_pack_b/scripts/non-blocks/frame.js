@@ -51,10 +51,6 @@ world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
     if (block.typeId !== "wolfaddon:painting_frame") return;
     if (!isFirstEvent) return;
 
-    // Só abre UI se estiver de mãos vazias (opcional)
-    const item = player.getComponent("minecraft:equippable")?.getEquipment("Mainhand");
-    if (item) return;
-
     event.cancel = true;
 
     system.run(() => {

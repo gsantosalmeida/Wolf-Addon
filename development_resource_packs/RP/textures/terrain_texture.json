@@ -1,0 +1,17 @@
+{
+  "resource_pack_name": "mesa_arcana",
+  "texture_name": "atlas.terrain",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "mesa_arcana_top": {
+      "textures": "textures/blocks/mesa_arcana_top"
+    },
+    "mesa_arcana_side": {
+      "textures": "textures/blocks/mesa_arcana_side"
+    },
+    "mesa_arcana_front": {
+      "textures": "textures/blocks/mesa_arcana_front"
+    }
+  }
+}

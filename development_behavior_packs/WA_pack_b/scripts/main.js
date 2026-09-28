@@ -1,2 +1,3 @@
 import "./items/chisel";
-import "./painting/frame";
+import "./non-blocks/frame";
+import "./blocks/mesa_arcana";
