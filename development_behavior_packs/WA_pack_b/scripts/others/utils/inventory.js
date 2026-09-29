@@ -22,16 +22,58 @@ export function countItem(player, typeId) {
   return count;
 }
 
-export function hasIngredients(player, ingredients) {
+/**
+ * Varre o inventário UMA vez e devolve um Map: typeId -> quantidade total.
+ * Use isso quando precisar checar várias receitas de uma vez (ex.: uma lista).
+ */
+export function getInventoryCounts(player) {
+  const counts = new Map();
+  const inv = getInventory(player);
+  if (!inv) return counts;
+
+  for (let i = 0; i < inv.size; i++) {
+    const item = inv.getItem(i);
+    if (item) {
+      counts.set(item.typeId, (counts.get(item.typeId) ?? 0) + item.amount);
+    }
+  }
+  return counts;
+}
+
+// 'counts' é opcional: sem ele, conta o inventário na hora (comportamento antigo)
+function amountOf(player, typeId, counts) {
+  return counts ? (counts.get(typeId) ?? 0) : countItem(player, typeId);
+}
+
+export function hasIngredients(player, ingredients, counts) {
   for (const ing of ingredients) {
-    if (countItem(player, ing.typeId) < ing.amount) {
+    if (amountOf(player, ing.typeId, counts) < ing.amount) {
       return false;
     }
   }
   return true;
 }
 
-export function consumeItems(player, ingredients) {
+/**
+ * Quantas vezes dá para fabricar a receita com o que há no inventário.
+ * Usa o Map de getInventoryCounts (uma varredura só).
+ */
+export function getMaxCraftable(ingredients, counts) {
+  let max = Infinity;
+  for (const ing of ingredients) {
+    const has = counts.get(ing.typeId) ?? 0;
+    max = Math.min(max, Math.floor(has / ing.amount));
+  }
+  return max === Infinity ? 0 : max;
+}
+
+export function consumeItems(player, baseIngredients, times = 1) {
+  // Multiplica as quantidades pelo número de fabricações
+  const ingredients = baseIngredients.map((ing) => ({
+    ...ing,
+    amount: ing.amount * times
+  }));
+
   if (!hasIngredients(player, ingredients)) return false;
 
   const inv = getInventory(player);
@@ -61,13 +103,10 @@ export function consumeItems(player, ingredients) {
 }
 
 /**
- * Entrega o item fabricado.
- * Tenta inventário → chão → comando /give (fallback).
+ * Entrega UMA pilha (amount deve caber no limite da pilha).
+ * Tenta inventário -> chão -> comando /give (fallback).
  */
-export function giveResult(player, result) {
-  const typeId = result.typeId;
-  const amount = result.amount ?? 1;
-
+function giveStack(player, typeId, amount) {
   // 1) Tenta colocar no inventário
   try {
     const inv = getInventory(player);
@@ -75,10 +114,8 @@ export function giveResult(player, result) {
 
     if (inv) {
       const leftover = inv.addItem(stack);
-      if (!leftover) {
-        return true; // entrou tudo
-      }
-      // sobrou → joga no chão
+      if (!leftover) return true; // entrou tudo
+      // sobrou -> joga no chão
       player.dimension.spawnItem(leftover, player.location);
       return true;
     }
@@ -108,10 +145,31 @@ export function giveResult(player, result) {
   }
 }
 
-export function getIngredientsStatusText(player, ingredients) {
+/**
+ * Entrega o item fabricado 'times' vezes.
+ * Divide em várias pilhas quando passa do limite (ex.: 64).
+ */
+export function giveResult(player, result, times = 1) {
+  const typeId = result.typeId;
+  let remaining = (result.amount ?? 1) * times;
+
+  let maxStack = 64;
+  try {
+    maxStack = new ItemStack(typeId, 1).maxAmount;
+  } catch (_) { }
+
+  while (remaining > 0) {
+    const n = Math.min(remaining, maxStack);
+    if (!giveStack(player, typeId, n)) return false;
+    remaining -= n;
+  }
+  return true;
+}
+
+export function getIngredientsStatusText(player, ingredients, counts) {
   let text = "";
   for (const ing of ingredients) {
-    const has = countItem(player, ing.typeId);
+    const has = amountOf(player, ing.typeId, counts);
     const color = has >= ing.amount ? "§a" : "§c";
     const display = ing.display || ing.typeId.replace("minecraft:", "");
     text += `${color}${has}/${ing.amount} ${display}\n`;
