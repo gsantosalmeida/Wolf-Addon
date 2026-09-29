@@ -1,0 +1,1172 @@
+// ============================================================================
+// Mesa Arcana - UI própria (estilo "console": abas + grade de slots + painéis)
+// Layout e texturas (textures/ui/wolf_*.png) originais do projeto.
+//
+// Formulários SEM a etiqueta no título continuam vanilla (vanilla_wrapper).
+// Formulários COM a etiqueta (§r§r§r§r) usam o mesa_layout. O script marca cada
+// botão com um marcador INVISÍVEL; o JSON usa o marcador para decidir onde ele aparece:
+//   §1§r slot   §3§r aba   §5§r seta   §9§r resultado   §b§r Fabricar   §d§r ingrediente
+//   flags: §4§r = vermelho (falta material)   §e§r = selecionado
+// ============================================================================
+{
+  "namespace": "server_form",
+  "mesa_slot_btn": {
+    "type": "button",
+    "size": [
+      22,
+      22
+    ],
+    "default_control": "default",
+    "hover_control": "hover",
+    "pressed_control": "pressed",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.form_button_click",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.form_button_click",
+        "mapping_type": "focused"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "collection_details",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_name": "#form_button_text",
+        "binding_type": "collection",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#form_button_text - '§1§r') = #form_button_text))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "default": {
+          "type": "panel",
+          "size": [
+            "100%",
+            "100%"
+          ]
+        }
+      },
+      {
+        "hover": {
+          "type": "image",
+          "texture": "textures/ui/wolf_hover",
+          "layer": 6,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "keep_ratio": false
+        }
+      },
+      {
+        "pressed": {
+          "type": "image",
+          "texture": "textures/ui/wolf_hover",
+          "layer": 6,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "color": [
+            0.7,
+            0.7,
+            0.7
+          ],
+          "keep_ratio": false
+        }
+      },
+      {
+        "bg": {
+          "type": "image",
+          "texture": "textures/ui/wolf_slot",
+          "layer": 1,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "nineslice_size": 3
+        }
+      },
+      {
+        "bg_red": {
+          "type": "image",
+          "texture": "textures/ui/wolf_slot_red",
+          "layer": 2,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "nineslice_size": 3,
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#form_button_text - '§4§r') = #form_button_text))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "icon": {
+          "type": "image",
+          "layer": 3,
+          "size": [
+            16,
+            16
+          ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "bindings": [
+            {
+              "binding_name": "#form_button_texture",
+              "binding_name_override": "#texture",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_name": "#form_button_texture_file_system",
+              "binding_name_override": "#texture_file_system",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "sel": {
+          "type": "image",
+          "texture": "textures/ui/wolf_slot_sel",
+          "layer": 4,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "nineslice_size": 3,
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#form_button_text - '§e§r') = #form_button_text))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "btn_label": {
+          "type": "label",
+          "layer": 5,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "font_scale_factor": 0.6,
+          "color": "$main_header_text_color",
+          "text": "#form_button_text",
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "mesa_tab_btn": {
+    "type": "button",
+    "size": [
+      36,
+      22
+    ],
+    "default_control": "default",
+    "hover_control": "hover",
+    "pressed_control": "pressed",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.form_button_click",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.form_button_click",
+        "mapping_type": "focused"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "collection_details",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_name": "#form_button_text",
+        "binding_type": "collection",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#form_button_text - '§3§r') = #form_button_text))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "default": {
+          "type": "panel",
+          "size": [
+            "100%",
+            "100%"
+          ]
+        }
+      },
+      {
+        "hover": {
+          "type": "image",
+          "texture": "textures/ui/wolf_hover",
+          "layer": 6,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "keep_ratio": false
+        }
+      },
+      {
+        "pressed": {
+          "type": "image",
+          "texture": "textures/ui/wolf_hover",
+          "layer": 6,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "color": [
+            0.7,
+            0.7,
+            0.7
+          ],
+          "keep_ratio": false
+        }
+      },
+      {
+        "bg": {
+          "type": "image",
+          "texture": "textures/ui/wolf_tab",
+          "layer": 1,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "nineslice_size": 3
+        }
+      },
+      {
+        "bg_sel": {
+          "type": "image",
+          "texture": "textures/ui/wolf_tab_sel",
+          "layer": 2,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "nineslice_size": 3,
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#form_button_text - '§e§r') = #form_button_text))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "icon": {
+          "type": "image",
+          "layer": 3,
+          "size": [
+            16,
+            16
+          ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "bindings": [
+            {
+              "binding_name": "#form_button_texture",
+              "binding_name_override": "#texture",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_name": "#form_button_texture_file_system",
+              "binding_name_override": "#texture_file_system",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "btn_label": {
+          "type": "label",
+          "layer": 5,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "font_scale_factor": 0.6,
+          "color": "$main_header_text_color",
+          "text": "#form_button_text",
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "mesa_nav_btn": {
+    "type": "button",
+    "size": [
+      16,
+      22
+    ],
+    "default_control": "default",
+    "hover_control": "hover",
+    "pressed_control": "pressed",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.form_button_click",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.form_button_click",
+        "mapping_type": "focused"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "collection_details",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_name": "#form_button_text",
+        "binding_type": "collection",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#form_button_text - '§5§r') = #form_button_text))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "default": {
+          "type": "panel",
+          "size": [
+            "100%",
+            "100%"
+          ]
+        }
+      },
+      {
+        "hover": {
+          "type": "image",
+          "texture": "textures/ui/wolf_hover",
+          "layer": 6,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "keep_ratio": false
+        }
+      },
+      {
+        "pressed": {
+          "type": "image",
+          "texture": "textures/ui/wolf_hover",
+          "layer": 6,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "color": [
+            0.7,
+            0.7,
+            0.7
+          ],
+          "keep_ratio": false
+        }
+      },
+      {
+        "bg": {
+          "type": "image",
+          "texture": "textures/ui/wolf_tab",
+          "layer": 1,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "nineslice_size": 3
+        }
+      },
+      {
+        "btn_label": {
+          "type": "label",
+          "layer": 5,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "font_scale_factor": 0.9,
+          "color": "$main_header_text_color",
+          "text": "#form_button_text",
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "mesa_act_btn": {
+    "type": "button",
+    "size": [
+      138,
+      15
+    ],
+    "default_control": "default",
+    "hover_control": "hover",
+    "pressed_control": "pressed",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.form_button_click",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.form_button_click",
+        "mapping_type": "focused"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "collection_details",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_name": "#form_button_text",
+        "binding_type": "collection",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#form_button_text - '§b§r') = #form_button_text))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "default": {
+          "type": "panel",
+          "size": [
+            "100%",
+            "100%"
+          ]
+        }
+      },
+      {
+        "hover": {
+          "type": "image",
+          "texture": "textures/ui/wolf_hover",
+          "layer": 6,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "keep_ratio": false
+        }
+      },
+      {
+        "pressed": {
+          "type": "image",
+          "texture": "textures/ui/wolf_hover",
+          "layer": 6,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "color": [
+            0.7,
+            0.7,
+            0.7
+          ],
+          "keep_ratio": false
+        }
+      },
+      {
+        "bg": {
+          "type": "image",
+          "texture": "textures/ui/wolf_btn",
+          "layer": 1,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "nineslice_size": 3
+        }
+      },
+      {
+        "bg_off": {
+          "type": "image",
+          "texture": "textures/ui/wolf_btn_off",
+          "layer": 2,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "nineslice_size": 3,
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#form_button_text - '§4§r') = #form_button_text))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "btn_label": {
+          "type": "label",
+          "layer": 5,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "font_scale_factor": 0.85,
+          "color": "$main_header_text_color",
+          "text": "#form_button_text",
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "mesa_info_row": {
+    "type": "panel",
+    "size": [
+      "100%",
+      12
+    ],
+    "bindings": [
+      {
+        "binding_name": "#form_button_text",
+        "binding_type": "collection",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#form_button_text - '§d§r') = #form_button_text))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "icon": {
+          "type": "image",
+          "layer": 3,
+          "size": [
+            10,
+            10
+          ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "bindings": [
+            {
+              "binding_name": "#form_button_texture",
+              "binding_name_override": "#texture",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_name": "#form_button_texture_file_system",
+              "binding_name_override": "#texture_file_system",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+              "target_property_name": "#visible"
+            }
+          ],
+          "offset": [
+            1,
+            0
+          ]
+        }
+      },
+      {
+        "row_label": {
+          "type": "label",
+          "layer": 5,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "font_scale_factor": 0.75,
+          "color": "$main_header_text_color",
+          "text": "#form_button_text",
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            }
+          ],
+          "offset": [
+            14,
+            0
+          ],
+          "size": [
+            "100% - 14px",
+            "default"
+          ]
+        }
+      }
+    ]
+  },
+  "mesa_res_item": {
+    "type": "panel",
+    "size": [
+      36,
+      36
+    ],
+    "bindings": [
+      {
+        "binding_name": "#form_button_text",
+        "binding_type": "collection",
+        "binding_collection_name": "form_buttons"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#form_button_text - '§9§r') = #form_button_text))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "bg": {
+          "type": "image",
+          "texture": "textures/ui/wolf_slot",
+          "layer": 1,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "nineslice_size": 3
+        }
+      },
+      {
+        "bg_red": {
+          "type": "image",
+          "texture": "textures/ui/wolf_slot_red",
+          "layer": 2,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "nineslice_size": 3,
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#form_button_text - '§4§r') = #form_button_text))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "icon": {
+          "type": "image",
+          "layer": 3,
+          "size": [
+            28,
+            28
+          ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "bindings": [
+            {
+              "binding_name": "#form_button_texture",
+              "binding_name_override": "#texture",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_name": "#form_button_texture_file_system",
+              "binding_name_override": "#texture_file_system",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "count": {
+          "type": "label",
+          "layer": 5,
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "font_scale_factor": 0.8,
+          "color": "$main_header_text_color",
+          "text": "#form_button_text",
+          "bindings": [
+            {
+              "binding_name": "#form_button_text",
+              "binding_type": "collection",
+              "binding_collection_name": "form_buttons"
+            }
+          ],
+          "offset": [
+            -2,
+            -1
+          ]
+        }
+      },
+      {
+        "arrow": {
+          "type": "image",
+          "texture": "textures/ui/wolf_arrow",
+          "layer": 3,
+          "size": [
+            14,
+            14
+          ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": [
+            -17,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  "mesa_tabs_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [
+      "100% - 44px",
+      22
+    ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [
+      4,
+      3
+    ],
+    "layer": 3,
+    "factory": {
+      "name": "buttons",
+      "control_ids": {
+        "button": "server_form.mesa_tab_btn"
+      }
+    },
+    "collection_name": "form_buttons",
+    "bindings": [
+      {
+        "binding_name": "#form_button_contents",
+        "binding_name_override": "#collection_length"
+      }
+    ]
+  },
+  "mesa_nav_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [
+      36,
+      22
+    ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [
+      -4,
+      3
+    ],
+    "layer": 3,
+    "factory": {
+      "name": "buttons",
+      "control_ids": {
+        "button": "server_form.mesa_nav_btn"
+      }
+    },
+    "collection_name": "form_buttons",
+    "bindings": [
+      {
+        "binding_name": "#form_button_contents",
+        "binding_name_override": "#collection_length"
+      }
+    ]
+  },
+  "mesa_info_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [
+      138,
+      48
+    ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [
+      8,
+      94
+    ],
+    "layer": 3,
+    "factory": {
+      "name": "buttons",
+      "control_ids": {
+        "button": "server_form.mesa_info_row"
+      }
+    },
+    "collection_name": "form_buttons",
+    "bindings": [
+      {
+        "binding_name": "#form_button_contents",
+        "binding_name_override": "#collection_length"
+      }
+    ]
+  },
+  "mesa_res_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [
+      36,
+      36
+    ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "offset": [
+      -9,
+      100
+    ],
+    "layer": 3,
+    "factory": {
+      "name": "buttons",
+      "control_ids": {
+        "button": "server_form.mesa_res_item"
+      }
+    },
+    "collection_name": "form_buttons",
+    "bindings": [
+      {
+        "binding_name": "#form_button_contents",
+        "binding_name_override": "#collection_length"
+      }
+    ]
+  },
+  "mesa_act_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [
+      138,
+      15
+    ],
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "offset": [
+      9,
+      -5
+    ],
+    "layer": 3,
+    "factory": {
+      "name": "buttons",
+      "control_ids": {
+        "button": "server_form.mesa_act_btn"
+      }
+    },
+    "collection_name": "form_buttons",
+    "bindings": [
+      {
+        "binding_name": "#form_button_contents",
+        "binding_name_override": "#collection_length"
+      }
+    ]
+  },
+  "mesa_grid": {
+    "type": "grid",
+    "size": [
+      198,
+      44
+    ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "offset": [
+      0,
+      28
+    ],
+    "layer": 3,
+    "grid_dimensions": [
+      9,
+      2
+    ],
+    "maximum_grid_items": 18,
+    "grid_rescaling_type": "none",
+    "grid_item_template": "server_form.mesa_slot_btn",
+    "collection_name": "form_buttons"
+  },
+  "mesa_layout": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "bindings": [
+      {
+        "binding_name": "#title_text"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not ((#title_text - '§r§r§r§r') = #title_text))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "mesa_bg": {
+          "type": "image",
+          "texture": "textures/ui/wolf_panel",
+          "layer": 1,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "nineslice_size": 3
+        }
+      },
+      {
+        "grid_frame": {
+          "type": "image",
+          "texture": "textures/ui/wolf_frame",
+          "layer": 2,
+          "size": [
+            206,
+            48
+          ],
+          "nineslice_size": 3,
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [
+            0,
+            26
+          ]
+        }
+      },
+      {
+        "left_frame": {
+          "type": "image",
+          "texture": "textures/ui/wolf_frame",
+          "layer": 2,
+          "size": [
+            150,
+            86
+          ],
+          "nineslice_size": 3,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [
+            4,
+            77
+          ]
+        }
+      },
+      {
+        "right_frame": {
+          "type": "image",
+          "texture": "textures/ui/wolf_frame",
+          "layer": 2,
+          "size": [
+            58,
+            86
+          ],
+          "nineslice_size": 3,
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+          "offset": [
+            -4,
+            77
+          ]
+        }
+      },
+      {
+        "mesa_tabs_panel@server_form.mesa_tabs_panel": {}
+      },
+      {
+        "mesa_nav_panel@server_form.mesa_nav_panel": {}
+      },
+      {
+        "mesa_grid@server_form.mesa_grid": {}
+      },
+      {
+        "body_label": {
+          "type": "label",
+          "layer": 4,
+          "text": "#form_text",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [
+            10,
+            81
+          ],
+          "size": [
+            138,
+            "default"
+          ],
+          "font_scale_factor": 0.95,
+          "color": "$main_header_text_color"
+        }
+      },
+      {
+        "mesa_info_panel@server_form.mesa_info_panel": {}
+      },
+      {
+        "mesa_res_panel@server_form.mesa_res_panel": {}
+      },
+      {
+        "mesa_act_panel@server_form.mesa_act_panel": {}
+      }
+    ]
+  },
+  "long_form_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "layer": 1,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "layers_panel": {
+          "type": "panel",
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "controls": [
+            {
+              "vanilla_wrapper": {
+                "type": "panel",
+                "size": [
+                  "100%",
+                  "100%"
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#title_text"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "((#title_text - '§r§r§r§r') = #title_text)",
+                    "target_property_name": "#visible"
+                  }
+                ],
+                "controls": [
+                  {
+                    "scrolling_panel@common.scrolling_panel": {
+                      "anchor_to": "top_left",
+                      "anchor_from": "top_left",
+                      "$show_background": false,
+                      "size": [
+                        "100%",
+                        "100%"
+                      ],
+                      "$scrolling_content": "server_form.long_form_scrolling_content",
+                      "$scroll_size": [
+                        5,
+                        "100% - 4px"
+                      ],
+                      "$scrolling_pane_size": [
+                        "100% - 4px",
+                        "100% - 2px"
+                      ],
+                      "$scrolling_pane_offset": [
+                        2,
+                        0
+                      ],
+                      "$scroll_bar_right_padding_size": [
+                        0,
+                        0
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "mesa_layout@server_form.mesa_layout": {}
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
