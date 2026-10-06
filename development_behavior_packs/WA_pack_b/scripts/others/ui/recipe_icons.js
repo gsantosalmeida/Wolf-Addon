@@ -1,0 +1,18 @@
+// Ingredient icons displayed in the selected recipe's detail panel.
+export const ingredientIcons = {
+  "minecraft:oak_planks": "textures/blocks/planks_oak",
+  "minecraft:stick": "textures/items/stick",
+  "minecraft:cobblestone": "textures/blocks/cobblestone",
+  "minecraft:iron_ingot": "textures/items/iron_ingot",
+  "minecraft:gold_ingot": "textures/items/gold_ingot",
+  "minecraft:apple": "textures/items/apple",
+  "minecraft:coal": "textures/items/coal",
+  "minecraft:wheat": "textures/items/wheat",
+  "minecraft:lapis_lazuli": "textures/items/dye_powder_blue",
+  "wolfaddon:cabo_aco": "textures/items/cabo_aco",
+  "wolfaddon:barra_ferro_carvao": "textures/items/barra_ferro_carvao",
+  "wolfaddon:turmalina_schorl": "textures/items/turmalina_schorl",
+  "wolfaddon:turmalina_indicolita": "textures/items/turmalina_indicolita",
+  "wolfaddon:turmalina_rubelita": "textures/items/turmalina_rubelita",
+  "wolfaddon:turmalina_paraiba": "textures/items/turmalina_paraiba",
+};
