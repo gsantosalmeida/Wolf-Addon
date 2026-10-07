@@ -1,0 +1,24 @@
+{
+  "order": 1,
+  "id": "arcane_wooden_sword",
+  "name": "Espada de Madeira",
+  "icon": "textures/items/wood_sword",
+  "result": {
+    "typeId": "minecraft:wooden_sword",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "minecraft:oak_planks",
+      "amount": 2,
+      "display": "Tábuas de Carvalho",
+      "icon": "textures/blocks/planks_oak"
+    },
+    {
+      "typeId": "minecraft:stick",
+      "amount": 1,
+      "display": "Graveto",
+      "icon": "textures/items/stick"
+    }
+  ]
+}

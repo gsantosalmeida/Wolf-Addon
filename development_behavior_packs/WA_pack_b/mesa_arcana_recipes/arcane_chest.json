@@ -1,0 +1,18 @@
+{
+  "order": 18,
+  "id": "arcane_chest",
+  "name": "Baú",
+  "icon": "textures/blocks/chest_front",
+  "result": {
+    "typeId": "minecraft:chest",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "minecraft:oak_planks",
+      "amount": 8,
+      "display": "Tábuas de Carvalho",
+      "icon": "textures/blocks/planks_oak"
+    }
+  ]
+}

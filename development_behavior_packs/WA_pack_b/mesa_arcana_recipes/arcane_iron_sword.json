@@ -1,0 +1,24 @@
+{
+  "order": 12,
+  "id": "arcane_iron_sword",
+  "name": "Espada de Ferro",
+  "icon": "textures/items/iron_sword",
+  "result": {
+    "typeId": "minecraft:iron_sword",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "minecraft:iron_ingot",
+      "amount": 2,
+      "display": "Barra de Ferro",
+      "icon": "textures/items/iron_ingot"
+    },
+    {
+      "typeId": "minecraft:stick",
+      "amount": 1,
+      "display": "Graveto",
+      "icon": "textures/items/stick"
+    }
+  ]
+}

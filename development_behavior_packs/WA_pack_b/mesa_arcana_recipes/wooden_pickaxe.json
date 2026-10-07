@@ -1,0 +1,24 @@
+{
+  "order": 3,
+  "id": "wooden_pickaxe",
+  "name": "Picareta de Madeira",
+  "icon": "textures/items/wood_pickaxe",
+  "result": {
+    "typeId": "minecraft:wooden_pickaxe",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "minecraft:oak_planks",
+      "amount": 3,
+      "display": "Tábuas de Carvalho",
+      "icon": "textures/blocks/planks_oak"
+    },
+    {
+      "typeId": "minecraft:stick",
+      "amount": 2,
+      "display": "Graveto",
+      "icon": "textures/items/stick"
+    }
+  ]
+}

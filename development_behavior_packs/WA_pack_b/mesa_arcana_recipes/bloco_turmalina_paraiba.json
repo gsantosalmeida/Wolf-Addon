@@ -1,0 +1,18 @@
+{
+  "order": 26,
+  "id": "bloco_turmalina_paraiba",
+  "name": "Bloco de Turmalina Paraíba",
+  "icon": "textures/blocks/bloco_turmalina_paraiba",
+  "result": {
+    "typeId": "wolfaddon:bloco_turmalina_paraiba",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "wolfaddon:turmalina_paraiba",
+      "amount": 9,
+      "display": "Turmalina Paraíba",
+      "icon": "textures/items/turmalina_paraiba"
+    }
+  ]
+}

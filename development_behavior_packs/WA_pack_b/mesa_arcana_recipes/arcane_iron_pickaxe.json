@@ -1,0 +1,24 @@
+{
+  "order": 13,
+  "id": "arcane_iron_pickaxe",
+  "name": "Picareta de Ferro",
+  "icon": "textures/items/iron_pickaxe",
+  "result": {
+    "typeId": "minecraft:iron_pickaxe",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "minecraft:iron_ingot",
+      "amount": 3,
+      "display": "Barra de Ferro",
+      "icon": "textures/items/iron_ingot"
+    },
+    {
+      "typeId": "minecraft:stick",
+      "amount": 2,
+      "display": "Graveto",
+      "icon": "textures/items/stick"
+    }
+  ]
+}

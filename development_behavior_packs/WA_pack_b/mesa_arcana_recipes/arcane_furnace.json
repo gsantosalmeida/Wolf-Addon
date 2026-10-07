@@ -1,0 +1,18 @@
+{
+  "order": 19,
+  "id": "arcane_furnace",
+  "name": "Fornalha",
+  "icon": "textures/blocks/furnace_front_off",
+  "result": {
+    "typeId": "minecraft:furnace",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "minecraft:cobblestone",
+      "amount": 8,
+      "display": "Pedregulho",
+      "icon": "textures/blocks/cobblestone"
+    }
+  ]
+}

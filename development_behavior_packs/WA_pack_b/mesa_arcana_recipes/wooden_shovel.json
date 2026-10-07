@@ -1,0 +1,24 @@
+{
+  "order": 4,
+  "id": "wooden_shovel",
+  "name": "Pá de Madeira",
+  "icon": "textures/items/wood_shovel",
+  "result": {
+    "typeId": "minecraft:wooden_shovel",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "minecraft:oak_planks",
+      "amount": 1,
+      "display": "Tábuas de Carvalho",
+      "icon": "textures/blocks/planks_oak"
+    },
+    {
+      "typeId": "minecraft:stick",
+      "amount": 2,
+      "display": "Graveto",
+      "icon": "textures/items/stick"
+    }
+  ]
+}

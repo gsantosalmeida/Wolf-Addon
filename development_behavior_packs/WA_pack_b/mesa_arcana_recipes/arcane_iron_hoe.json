@@ -1,0 +1,24 @@
+{
+  "order": 15,
+  "id": "arcane_iron_hoe",
+  "name": "Enxada de Ferro",
+  "icon": "textures/items/iron_hoe",
+  "result": {
+    "typeId": "minecraft:iron_hoe",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "minecraft:iron_ingot",
+      "amount": 2,
+      "display": "Barra de Ferro",
+      "icon": "textures/items/iron_ingot"
+    },
+    {
+      "typeId": "minecraft:stick",
+      "amount": 2,
+      "display": "Graveto",
+      "icon": "textures/items/stick"
+    }
+  ]
+}

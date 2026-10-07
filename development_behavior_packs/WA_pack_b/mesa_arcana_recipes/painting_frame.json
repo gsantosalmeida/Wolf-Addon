@@ -1,0 +1,30 @@
+{
+  "order": 22,
+  "id": "painting_frame",
+  "name": "Quadro Mágico",
+  "icon": "textures/items/quadro_magico",
+  "result": {
+    "typeId": "wolfaddon:painting_frame",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "minecraft:lapis_lazuli",
+      "amount": 1,
+      "display": "Lápis Lazuli",
+      "icon": "textures/items/dye_powder_blue"
+    },
+    {
+      "typeId": "minecraft:coal",
+      "amount": 2,
+      "display": "Carvão",
+      "icon": "textures/items/coal"
+    },
+    {
+      "typeId": "wolfaddon:cabo_aco",
+      "amount": 6,
+      "display": "Cabo de Aço",
+      "icon": "textures/items/cabo_aco"
+    }
+  ]
+}

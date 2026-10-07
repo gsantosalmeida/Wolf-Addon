@@ -1,0 +1,24 @@
+{
+  "order": 17,
+  "id": "arcane_torch",
+  "name": "Tocha",
+  "icon": "textures/blocks/torch_on",
+  "result": {
+    "typeId": "minecraft:torch",
+    "amount": 4
+  },
+  "ingredients": [
+    {
+      "typeId": "minecraft:coal",
+      "amount": 1,
+      "display": "Carvão",
+      "icon": "textures/items/coal"
+    },
+    {
+      "typeId": "minecraft:stick",
+      "amount": 1,
+      "display": "Graveto",
+      "icon": "textures/items/stick"
+    }
+  ]
+}

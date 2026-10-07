@@ -1,0 +1,18 @@
+{
+  "order": 23,
+  "id": "bloco_turmalina_schorl",
+  "name": "Bloco de Turmalina Schorl",
+  "icon": "textures/blocks/bloco_turmalina_schorl",
+  "result": {
+    "typeId": "wolfaddon:bloco_turmalina_schorl",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "wolfaddon:turmalina_schorl",
+      "amount": 9,
+      "display": "Turmalina Schorl",
+      "icon": "textures/items/turmalina_schorl"
+    }
+  ]
+}

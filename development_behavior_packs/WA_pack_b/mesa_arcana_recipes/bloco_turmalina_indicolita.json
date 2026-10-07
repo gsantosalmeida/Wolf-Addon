@@ -1,0 +1,18 @@
+{
+  "order": 24,
+  "id": "bloco_turmalina_indicolita",
+  "name": "Bloco de Turmalina Indicolita",
+  "icon": "textures/blocks/bloco_turmalina_indicolita",
+  "result": {
+    "typeId": "wolfaddon:bloco_turmalina_indicolita",
+    "amount": 1
+  },
+  "ingredients": [
+    {
+      "typeId": "wolfaddon:turmalina_indicolita",
+      "amount": 9,
+      "display": "Turmalina Indicolita",
+      "icon": "textures/items/turmalina_indicolita"
+    }
+  ]
+}
