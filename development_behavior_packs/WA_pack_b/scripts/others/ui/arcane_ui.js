@@ -19,8 +19,8 @@ export function openArcaneTable(player) {
   sessions.add(player.id);
   runTable(player)
     .catch((error) => {
-      console.error('[Mesa Arcana] ' + error);
-      try { player.sendMessage('§c[Mesa Arcana] Erro: ' + String(error)); } catch (_) { }
+      console.error('[Mesa de Trabalho] ' + error);
+      try { player.sendMessage('§c[Mesa de Trabalho] Erro: ' + String(error)); } catch (_) { }
     })
     .finally(() => sessions.delete(player.id));
 }
@@ -43,7 +43,12 @@ function sound(player, name) {
 async function runTable(player) {
   while (true) {
     const counts = getInventoryCounts(player);
-    const form = new ActionFormData().title(`${TITLE_TAG}§5Mesa Arcana`);
+    const form = new ActionFormData().title({
+      rawtext: [
+        { text: `${TITLE_TAG}§5` },
+        { translate: 'ui.wolfaddon.worktable.title' },
+      ],
+    });
 
     for (let index = 0; index < arcaneRecipes.length; index++) {
       const recipe = arcaneRecipes[index];

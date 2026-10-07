@@ -123,7 +123,7 @@ function giveStack(player, typeId, amount) {
     player.dimension.spawnItem(stack, player.location);
     return true;
   } catch (e) {
-    console.warn("[Mesa Arcana] addItem falhou: " + e);
+    console.warn("[Mesa de Trabalho] addItem falhou: " + e);
   }
 
   // 2) Fallback: spawn no chão
@@ -132,7 +132,7 @@ function giveStack(player, typeId, amount) {
     player.dimension.spawnItem(stack, player.location);
     return true;
   } catch (e) {
-    console.warn("[Mesa Arcana] spawnItem falhou: " + e);
+    console.warn("[Mesa de Trabalho] spawnItem falhou: " + e);
   }
 
   // 3) Último recurso: comando give
@@ -140,7 +140,7 @@ function giveStack(player, typeId, amount) {
     player.runCommand(`give @s ${typeId} ${amount}`);
     return true;
   } catch (e) {
-    console.error("[Mesa Arcana] give falhou: " + e);
+    console.error("[Mesa de Trabalho] give falhou: " + e);
     return false;
   }
 }

@@ -12,3 +12,5 @@ tile.wolfaddon:bloco_turmalina_paraiba.name=Paraiba Tourmaline Block
 tile.wolfaddon:bloco_turmalina_schorl.name=Schorl Tourmaline Block
 tile.wolfaddon:bloco_turmalina_rubelita.name=Rubellite Tourmaline Block
 tile.wolfaddon:bloco_turmalina_indicolita.name=Indicolite Tourmaline Block
+tile.wolfaddon:mesa_arcana.name=Worktable
+ui.wolfaddon.worktable.title=Worktable

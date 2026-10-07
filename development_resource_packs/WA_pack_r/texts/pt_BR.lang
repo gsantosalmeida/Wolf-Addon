@@ -18,4 +18,5 @@ tile.wolfaddon:bloco_turmalina_schorl.name=Bloco de Turmalina Schorl
 tile.wolfaddon:bloco_turmalina_rubelita.name=Bloco de Turmalina Rubelita
 tile.wolfaddon:bloco_turmalina_indicolita.name=Bloco de Turmalina Indicolita
 tile.wolfaddon:painting_frame.name=Quadro Mágico
-tile.wolfaddon:mesa_arcana.name=Mesa de Trabalho Avançada
+tile.wolfaddon:mesa_arcana.name=Mesa de Trabalho
+ui.wolfaddon.worktable.title=Mesa de Trabalho

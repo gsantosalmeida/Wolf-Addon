@@ -13,6 +13,12 @@
     "wolfaddon:bloco_turmalina_paraiba": {
       "textures": "textures/blocks/bloco_turmalina_paraiba"
     },
+    "wolfaddon:safira_ore": {
+      "textures": "textures/blocks/safira_ore"
+    },
+    "wolfaddon:platina_ore": {
+      "textures": "textures/blocks/platina_ore"
+    },
     "mesa_arcana": {
       "textures": "textures/blocks/mesa_arcana"
     },
