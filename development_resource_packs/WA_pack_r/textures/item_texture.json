@@ -42,9 +42,6 @@
     },
     "wolfaddon:quadro_magico": {
       "textures": "textures/items/quadro_magico"
-    },
-    "mesa_arcana": {
-      "textures": "textures/blocks/mesa_arcana"
     }
   }
 }

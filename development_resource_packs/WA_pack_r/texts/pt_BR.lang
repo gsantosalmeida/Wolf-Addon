@@ -1,5 +1,5 @@
-pack.name=Wolf Addon [R]
-pack.description=Um Addon Teste feito por Wolf ADDON
+pack.name=Wolf Addon Exploração [R]
+pack.description=Recursos visuais do Wolf Addon Exploração
 item.wolfaddon:turmalina_paraiba=Turmalina Paraíba
 item.wolfaddon:turmalina_schorl=Turmalina Schorl
 item.wolfaddon:turmalina_rubelita=Turmalina Rubelita
@@ -18,5 +18,3 @@ tile.wolfaddon:bloco_turmalina_schorl.name=Bloco de Turmalina Schorl
 tile.wolfaddon:bloco_turmalina_rubelita.name=Bloco de Turmalina Rubelita
 tile.wolfaddon:bloco_turmalina_indicolita.name=Bloco de Turmalina Indicolita
 tile.wolfaddon:painting_frame.name=Quadro Mágico
-tile.wolfaddon:safira_ore.name=Minério de Safira
-tile.wolfaddon:platina_ore.name=Minério de Platina

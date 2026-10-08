@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "WA Planetoides [B]",
+    "description": "Planetoides gerados no Overworld a partir de Y=280.",
+    "uuid": "d798130e-3672-4778-b0e7-059f9b2f5592",
+    "version": [1, 2, 0],
+    "min_engine_version": [1, 21, 120]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "b1b6ab38-9cd4-4902-9ee9-218ce392807c",
+      "version": [1, 2, 0]
+    }
+  ]
+}
